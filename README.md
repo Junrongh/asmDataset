@@ -2,9 +2,9 @@
 
 Here is the master program for Carnegie Mellon University Material Science Department.
 
-##		Test-Learn
+##		Test&Learning
 
 
-Floder Test-Learn is the current Testing & Learning methods which may be used in the future programming
+Floder Test&Learning is the current Testing & Learning methods which may be used in the future programming
 
 
