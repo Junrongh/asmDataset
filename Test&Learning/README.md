@@ -45,8 +45,7 @@ Unseful Command:
 Model, Sequential, Dense, Dropout, Activation, Flatten, Convolution2D, Maxpooling2D, etc. 
 
 >
-	import keras
->	
+	import keras	
 	#Find the backend package in use#
 	>>>Using Theano backend
 	or
