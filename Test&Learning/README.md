@@ -84,12 +84,23 @@ TensorFlow's image input is a 3d-array, shape=(x-pixels, y-pixels, Channel)
 	#(x, y): the shape of filter#
 	layer=MaxPooling2D(pool_size=(x, y))
 
-- TODO	
-
 >
-	#Dropout#
+	#Dropout, for fixing overfitting#
 	#value: #
 	layer=Dropout(value)
+>
+	#Flatten#
+	layer=Flatten()
+>
+	#Dense#
+	#value:#
+	#activation='type', including relu, softmax, etc.#
+	layer=Dense(value, activation='type')
+>
+	model.compile(loss='categorical_crossentropy',
+						optimizer='adam', metrics=['accuracy'])
+	model.fit(XTrain, yTrain, batch_size=32, epochs=10, verbose=1)
+	score=model.evaluate(XTest, yTest, verbose=0)
 
 	
 	
