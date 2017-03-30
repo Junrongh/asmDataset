@@ -32,11 +32,13 @@ def selfcrop(image):
 
 
 def quad_crop(image):
-    image = topbot_crop(image)
+    x, y, *rest = np.array(image.shape).astype(int)
+    if x > 550:
+        image = topbot_crop(image)
     x, y, *rest = np.array(image.shape).astype(int)
     (centerx, centery) = (x / 2, y / 2)
-    n = centerx / 150
-    m = centery / 150
+    n = centerx / 200
+    m = centery / 200
     centerx = int(centerx)
     centery = int(centery)
     i = 0
@@ -45,13 +47,13 @@ def quad_crop(image):
         j = 0
         while j < m - 1:
             crops.append((i, j, 1, image[
-                         centerx - 150 * (i + 1):centerx - 150 * i, centery - 150 * (j + 1):centery - 150 * j]))
+                         centerx - 200 * (i + 1):centerx - 200 * i, centery - 200 * (j + 1):centery - 200 * j]))
             crops.append((i, j, 2, image[
-                         centerx - 150 * (i + 1):centerx - 150 * i, centery + 150 * j:centery + 150 * (j + 1)]))
+                         centerx - 200 * (i + 1):centerx - 200 * i, centery + 200 * j:centery + 200 * (j + 1)]))
             crops.append((i, j, 3, image[
-                         centerx + 150 * i:centerx + 150 * (i + 1), centery - 150 * (j + 1):centery - 150 * j]))
+                         centerx + 200 * i:centerx + 200 * (i + 1), centery - 200 * (j + 1):centery - 200 * j]))
             crops.append((i, j, 4, image[
-                         centerx + 150 * i:centerx + 150 * (i + 1), centery + 150 * j:centery + 150 * (j + 1)]))
+                         centerx + 200 * i:centerx + 200 * (i + 1), centery + 200 * j:centery + 200 * (j + 1)]))
             j = j + 1
         i = i + 1
 

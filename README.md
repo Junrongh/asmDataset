@@ -18,7 +18,7 @@ Floder Test&Learning is the current Testing & Learning methods which may be used
 
 ###	Crop the graphs
 
-Data initialization, cut the graphs into certain shape, e.g. $150\times 150$ pixels for these reasons:
+Data initialization, cut the graphs into certain shape, e.g. $200\times 200$ pixels for these reasons:
 
 -	Using the valuable data for the further image representation. Remove the pixels that are useless, including scales, black edges, etc.
 
