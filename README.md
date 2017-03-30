@@ -9,4 +9,25 @@ Language Using: Python3.5
 
 Floder Test&Learning is the current Testing & Learning methods which may be used in the future programming
 
+##		Workflow
 
+-	Crop the graphs
+
+-	>TODO
+
+
+###	Crop the graphs
+
+Data initialization, cut the graphs into certain shape, e.g. $150\times 150$ pixels for these reasons:
+
+-	Using the valuable data for the further image representation. Remove the pixels that are useless, including scales, black edges, etc.
+
+-	The Micrographs usually have $>400$ pixels shape, by cropping the graphs, we could get more training data for the training system.
+
+>TODO
+>
+>Questions:
+>
+>is there any loss of transfering from rgb to gray?
+
+*TEST VERSION: To use the crop.py, run terminal in the data floder, run the crop.py file.*
