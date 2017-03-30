@@ -2,7 +2,7 @@
 
 Here is the master program for Carnegie Mellon University Material Science Department.
 
-Language in use: Python3.5
+Language Using: Python3.5
 
 ##		Test&Learning
 
