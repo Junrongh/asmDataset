@@ -6,6 +6,7 @@ import numpy as np
 from skimage.io import imread, imsave
 
 
+
 def topbot_crop(image):
     # Since the top & bottom have the scales and the marks,
     # which is useless for the future image representation,
@@ -71,13 +72,65 @@ def circle_crop(image):
 
 
 if __name__ == '__main__':
-    paths = glob.glob('Micrographs/*/*.png')
+
+    xtrain = np.zeros([1, 40000])
+    ytrain = np.zeros([1, ])
+
+    paths = glob.glob('../Micrographs/al/*.png')
 
     for path in paths:
         print('cropping {}'.format(path))
         prefix, ext = os.path.splitext(os.path.basename(path))
         crops = selfcrop(imread(path, as_grey=True))
+
         for i, j, label, crop in crops:
             dest = '{}-crop{}_{}_{}.png'.format(prefix, i, j, label)
-            dest = os.path.join('crops', dest)
+            dest = os.path.join('../crops', dest)
             imsave(dest, crop)
+
+        for i in crops:
+            temp = np.array(i[3]).reshape([1, 40000])
+            xtrain = np.vstack((xtrain, temp))
+            ytrain = np.vstack((ytrain, 0 * np.ones([1, ])))
+
+    paths = glob.glob('../Micrographs/ti/*.png')
+
+    for path in paths:
+        print('cropping {}'.format(path))
+        prefix, ext = os.path.splitext(os.path.basename(path))
+        crops = selfcrop(imread(path, as_grey=True))
+
+        for i, j, label, crop in crops:
+            dest = '{}-crop{}_{}_{}.png'.format(prefix, i, j, label)
+            dest = os.path.join('../crops', dest)
+            imsave(dest, crop)
+
+        for i in crops:
+            temp = np.array(i[3]).reshape([1, 40000])
+            xtrain = np.vstack((xtrain, temp))
+            ytrain = np.vstack((ytrain, 1 * np.ones([1, ])))
+
+    paths = glob.glob('../Micrographs/cu/*.png')
+
+    for path in paths:
+        print('cropping {}'.format(path))
+        prefix, ext = os.path.splitext(os.path.basename(path))
+        crops = selfcrop(imread(path, as_grey=True))
+
+        for i, j, label, crop in crops:
+            dest = '{}-crop{}_{}_{}.png'.format(prefix, i, j, label)
+            dest = os.path.join('../crops', dest)
+            imsave(dest, crop)
+
+        for i in crops:
+            temp = np.array(i[3]).reshape([1, 40000])
+            xtrain = np.vstack((xtrain, temp))
+            ytrain = np.vstack((ytrain, 2 * np.ones([1, ])))
+
+    xtrain = np.delete(xtrain, 0, 0)
+    ytrain = np.delete(ytrain, 0, 0)
+
+    np.save('../data',xtrain)
+    np.save('../labels',ytrain)
+
+
