@@ -11,7 +11,9 @@ Floder Test&Learning is the current Testing & Learning methods which may be used
 
 ##		Workflow
 
--	Crop the graphs
+-	Put the code floder under the same directory with the Micrograph floder
+
+-	Initialize.py to get cropped images and their labels
 
 -	>TODO
 
